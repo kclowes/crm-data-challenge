@@ -31,8 +31,28 @@ describe DataChallenge do
 
   it 'returns all of the first names of the people who work there' do
     dc = DataChallenge.new(company_array)
+    #what is a better name for dc?
     actual = dc.first_name
     expected = ['Shannon', 'Peyton', 'Terrell']
+    expect(actual).to eq(expected)
+  end
+
+  it 'user can add things to the array' do
+    dc = DataChallenge.new(company_array)
+    actual = dc.add_employee('Barry', 'Sanders')
+    expected = [{company: 'Nicholas and Sons',
+                 :employees => [
+                   {:first_name => 'Shannon',
+                    :last_name => 'Sharpe'},
+                   {:first_name => 'Peyton',
+                    :last_name => 'Manning'},
+                   {:first_name => 'Terrell',
+                    :last_name => 'Davis'},
+                   {:first_name => 'Barry',
+                    :last_name => 'Sanders'}
+                 ]
+                }
+    ]
     expect(actual).to eq(expected)
   end
 end

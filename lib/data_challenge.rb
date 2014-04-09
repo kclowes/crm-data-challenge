@@ -15,4 +15,13 @@ class DataChallenge
     end
   first_name_array
   end
+
+  def add_employee(new_emp_first_name, new_emp_last_name)
+    place_in_the_array = @original_array[0][:employees]
+    adding_index = place_in_the_array.count.to_i
+    place_in_the_array[adding_index]= {first_name: new_emp_first_name,
+                                       last_name: new_emp_last_name}
+    @original_array
+  end
+
 end
