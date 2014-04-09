@@ -37,7 +37,7 @@ describe DataChallenge do
     expect(actual).to eq(expected)
   end
 
-  it 'user can add things to the array' do
+  it 'user can add employees to the array' do
     dc = DataChallenge.new(company_array)
     actual = dc.add_employee('Barry', 'Sanders')
     expected = [{company: 'Nicholas and Sons',
@@ -55,4 +55,22 @@ describe DataChallenge do
     ]
     expect(actual).to eq(expected)
   end
-end
+
+  it 'user can add a new company to the array' do
+    dc = DataChallenge.new(company_array)
+    actual = dc.add_company('Dallas Cowboys')
+    expected = [{company: 'Nicholas and Sons',
+                 :employees => [
+                   {:first_name => 'Shannon',
+                    :last_name => 'Sharpe'},
+                   {:first_name => 'Peyton',
+                    :last_name => 'Manning'},
+                   {:first_name => 'Terrell',
+                    :last_name => 'Davis'},
+                   {:first_name => 'Barry',
+                    :last_name => 'Sanders'}]},
+                {company: 'Dallas Cowboys'}
+    ]
+    expect(actual).to eq(expected)
+  end
+  end
